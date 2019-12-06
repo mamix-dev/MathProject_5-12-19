@@ -2,7 +2,7 @@
 <body>
 <head>
 <meta charset = "utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <style>
     #link{
         font-size: 70px;
@@ -10,55 +10,56 @@
 </style>
 </head>
 <script src="https://www.desmos.com/api/v1.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-<div id="calculator" style="width: 600px; height: 400px;"></div>
-<!--p id ="test">Print in here for testing</p>!-->
+<div id="calculator"></div>
 <script>    
+    alert("Welcome to my graphing calculator for a specific problem.\nThis calculator will do as follows...\n1) Create a list of numbers that are randomly selected from a pre-existing list of numbers.\n2) Find the average of both of these new lists\n3) Find the difference in the averages.\n\n**Note**\nReplace the 'HERE' in the expressions with the letter 'A'.\n\nFind the repo at:\nhttps://github.com/mamix-dev/MathProject_5-12-19");
+    
     // Below are the lists of the numbers (the original dataset)
     var array_of_nums1 = [55.5,51,54.5,53.5,51,59.5,54,42,53.5,40];
     var array_of_nums2 = [60,64.5,66.5,67,62,55,62.5,64,65,55];
     
     // Here I collect how many times the user wants to loop over this mess.
-    var amount_of_loops = prompt("How many times would you like to loop over the list?", "Numbers only, please and thank you");
+    var amount_of_loops = prompt("How many data points do you want to have?", "Numbers only, please and thank you");
     var sanitized_input = Number(amount_of_loops);
     
     // This is SUPPOSED TO BE the array in which array that holds the final values are held in.
     var list_of_outputted_numbers = [];
     
     for (u = 0; u < sanitized_input; u++)  {             
-        
+
         // Below I am creating a new array that will contain the a randomized selection of 10 numbers from the original list.
-    var random_array_of_nums1 = [];
-    for (f = 0; f < array_of_nums1.length; f++) {
-        var rand_NUM_array1 = array_of_nums1[Math.floor(Math.random()*array_of_nums1.length)];
-        random_array_of_nums1.push(rand_NUM_array1)
-    } 
-    
-    // Here I'm doing the same thing I did ealier, but with the second list
-    var random_array_of_nums2 = [];
-    for (q = 0; q < array_of_nums2.length; q++)  {
-        var rand_NUM_array2 = array_of_nums2[Math.floor(Math.random()*array_of_nums2.length)];
-        random_array_of_nums2.push(rand_NUM_array2)
-    }
-    
-    // Here I'm finding the total of the randomized first list, than the total of the elements of the randomized second list.
-    var rand_array_total1 = 0;
-    for(var z = 0; z < random_array_of_nums1.length; z++) {
-        rand_array_total1 += random_array_of_nums1[z];
-    }
-    var rand_array_total2 = 0;
-    for(var e = 0; e < random_array_of_nums2.length; e++) {
-        rand_array_total2 += random_array_of_nums2[e];
-    }
-        
-    // Here I am finding the mean of all the numbers of the randomized elements list.
-    var mean1 = rand_array_total1 / random_array_of_nums1.length;
-    var mean2 = rand_array_total2 / random_array_of_nums2.length;  
-        
-    // Difference between the means
-        
-    var mean_diff = mean2 - mean1;
-    list_of_outputted_numbers.push(mean_diff);
-        
+        var random_array_of_nums1 = [];
+        for (f = 0; f < array_of_nums1.length; f++) {
+            var rand_NUM_array1 = array_of_nums1[Math.floor(Math.random()*array_of_nums1.length)];
+            random_array_of_nums1.push(rand_NUM_array1)
+        } 
+
+        // Here I'm doing the same thing I did ealier, but with the second list
+        var random_array_of_nums2 = [];
+        for (q = 0; q < array_of_nums2.length; q++)  {
+            var rand_NUM_array2 = array_of_nums2[Math.floor(Math.random()*array_of_nums2.length)];
+            random_array_of_nums2.push(rand_NUM_array2)
+        }
+
+        // Here I'm finding the total of the randomized first list, than the total of the elements of the randomized second list.
+        var rand_array_total1 = 0;
+        for(var z = 0; z < random_array_of_nums1.length; z++) {
+            rand_array_total1 += random_array_of_nums1[z];
+        }
+        var rand_array_total2 = 0;
+        for(var e = 0; e < random_array_of_nums2.length; e++) {
+            rand_array_total2 += random_array_of_nums2[e];
+        }
+
+        // Here I am finding the mean of all the numbers of the randomized elements list.
+        var mean1 = rand_array_total1 / random_array_of_nums1.length;
+        var mean2 = rand_array_total2 / random_array_of_nums2.length;  
+
+        // Difference between the means
+
+        var mean_diff = mean2 - mean1;
+        list_of_outputted_numbers.push(mean_diff);
+
     }
     
     var JUST_0 = []
@@ -78,9 +79,6 @@
     elt.style.width = window.innerWidth;
     elt.style.height = window.innerHeight;
     
-    // Testing zone below
-    //console.log(typeof sanitized_input);
-    //document.getElementById("test").innerHTML = list_of_outputted_numbers;
 </script>
     <h1 id ="link"><a href = "https://mamix-dev.github.io/MathProject_5-12-19/calculating_means.html">Here is a different version of the calculator in which just the means of the randomized lists are calculated and graphed.</a></h1>
 </body>
