@@ -1,7 +1,13 @@
 <html>
 <body>
 <head>
-<meta charset = "utf-8"/>    
+<meta charset = "utf-8"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+    #link{
+        font-size: 70px;
+    }
+</style>
 </head>
 <script src="https://www.desmos.com/api/v1.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 <div id="calculator" style="width: 600px; height: 400px;"></div>
@@ -76,10 +82,12 @@
     
     elt.style.width = window.innerWidth;
     elt.style.height = window.innerHeight;
+    calculator.resize();
     
     // Testing zone below
     //console.log(typeof sanitized_input);
     //document.getElementById("test").innerHTML = list_of_outputted_numbers;
 </script>
+<h1 id = "link"><a href= "https://mamix-dev.github.io/MathProject_5-12-19/">Here is a link to the main page.</a></h1>
 </body>
 </html>
