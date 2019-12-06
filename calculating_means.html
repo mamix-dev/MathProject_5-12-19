@@ -10,15 +10,15 @@
 </style>
 </head>
 <script src="https://www.desmos.com/api/v1.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-<div id="calculator" style="width: 600px; height: 400px;"></div>
-<!--p id ="test">Print in here for testing</p>!-->
+<div id="calculator"></div>
 <script>    
+    alert("Welcome to my (2nd) graphing calculator for a specific problem.\nThis calculator will do as follows...\n1) Create a list of numbers that are randomly selected from a pre-existing list of numbers.\n2) Find the average of both of these new lists and graphs them.\n\n**Note**\nReplace the 'HERE' in the expressions with the letter 'A'.\n\nFind the repo at:\nhttps://github.com/mamix-dev/MathProject_5-12-19");
     // Below are the lists of the numbers (the original dataset)
     var array_of_nums1 = [55.5,51,54.5,53.5,51,59.5,54,42,53.5,40];
     var array_of_nums2 = [60,64.5,66.5,67,62,55,62.5,64,65,55];
     
     // Here I collect how many times the user wants to loop over this mess.
-    var amount_of_loops = prompt("How many times would you like to loop over the list?", "Numbers only, please and thank you");
+    var amount_of_loops = prompt("How many data points do you want to have?", "Numbers only, please and thank you");
     var sanitized_input = Number(amount_of_loops);
     
     // This is SUPPOSED TO BE the array in which array that holds the final values are held in.
@@ -67,7 +67,6 @@
         JUST_0.push(0);
     }
     
-
     
     // Desmos stuff below
     var elt = document.getElementById('calculator');
@@ -84,9 +83,6 @@
     elt.style.height = window.innerHeight;
     calculator.resize();
     
-    // Testing zone below
-    //console.log(typeof sanitized_input);
-    //document.getElementById("test").innerHTML = list_of_outputted_numbers;
 </script>
 <h1 id = "link"><a href= "https://mamix-dev.github.io/MathProject_5-12-19/">Here is a link to the main page.</a></h1>
 </body>
