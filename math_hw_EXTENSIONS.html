@@ -1,0 +1,86 @@
+<html>
+<body>
+<head>
+<meta charset = "utf-8"/>    
+</head>
+<script src="https://www.desmos.com/api/v1.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<div id="calculator" style="width: 600px; height: 400px;"></div>
+<!--p id ="test">Print in here for testing</p>!-->
+<script>    
+    // Below are the lists of the numbers (the original dataset)
+    var array_of_nums1 = [55.5,51,54.5,53.5,51,59.5,54,42,53.5,40];
+    var array_of_nums2 = [60,64.5,66.5,67,62,55,62.5,64,65,55];
+    
+    // Here I collect how many times the user wants to loop over this mess.
+    var amount_of_loops = prompt("How many times would you like to loop over the list?", "Numbers only, please and thank you");
+    var sanitized_input = Number(amount_of_loops);
+    
+    // This is SUPPOSED TO BE the array in which array that holds the final values are held in.
+    let mean1_array = [];
+    let mean2_array = [];
+    
+    for (u = 0; u < sanitized_input; u++)  {             
+        
+            // Below I am creating a new array that will contain the a randomized selection of 10 numbers from the original list.
+        var random_array_of_nums1 = [];
+        for (f = 0; f < array_of_nums1.length; f++) {
+            var rand_NUM_array1 = array_of_nums1[Math.floor(Math.random()*array_of_nums1.length)];
+            random_array_of_nums1.push(rand_NUM_array1)
+        } 
+
+        // Here I'm doing the same thing I did ealier, but with the second list
+        var random_array_of_nums2 = [];
+        for (q = 0; q < array_of_nums2.length; q++)  {
+            var rand_NUM_array2 = array_of_nums2[Math.floor(Math.random()*array_of_nums2.length)];
+            random_array_of_nums2.push(rand_NUM_array2)
+        }
+
+        // Here I'm finding the total of the randomized first list, than the total of the elements of the randomized second list.
+        var rand_array_total1 = 0;
+        for(var z = 0; z < random_array_of_nums1.length; z++) {
+            rand_array_total1 += random_array_of_nums1[z];
+        }
+        var rand_array_total2 = 0;
+        for(var e = 0; e < random_array_of_nums2.length; e++) {
+            rand_array_total2 += random_array_of_nums2[e];
+        }
+
+        // Here I am finding the mean of all the numbers of the randomized elements list.
+        var mean1 = rand_array_total1 / random_array_of_nums1.length;
+        var mean2 = rand_array_total2 / random_array_of_nums2.length;  
+
+        //This is taking a loop for the new set of means and pushing it to the array
+            mean1_array.push(mean1);
+            mean2_array.push(mean2);
+     
+    }
+    
+    // This is just getting together the list of y-values so the points can be plotted on the x-axis.
+    var JUST_0 = [];
+    for(var a = 0; a  < random_array_of_nums1.length; a++) {
+        JUST_0.push(0);
+    }
+    
+
+    
+    // Desmos stuff below
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+    calculator.setExpression({type: 'table', id: 'table', columns:[{latex: 'A', values: mean1_array}, {latex: 'y', values: JUST_0}]});
+    calculator.setExpression({type: 'table', id: 'table2', columns:[{latex: 'B', values: mean2_array}, {latex: 'y', values: JUST_0}]});
+    calculator.setExpression({latex: 'histogram(HERE)'});
+    calculator.setExpression({latex: 'dotplot(HERE)'});
+    calculator.setExpression({latex: 'histogram(HERE)'});
+    calculator.setExpression({latex: 'dotplot(HERE)'});
+    calculator.setExpression({latex: 'histogram(A)'});
+    
+    elt.style.width = '1200px';
+    elt.style.height = '700px';
+    calculator.resize();
+    
+    // Testing zone below
+    //console.log(typeof sanitized_input);
+    //document.getElementById("test").innerHTML = list_of_outputted_numbers;
+</script>
+</body>
+</html>
