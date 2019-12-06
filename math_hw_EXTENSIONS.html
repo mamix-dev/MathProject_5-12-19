@@ -74,9 +74,8 @@
     calculator.setExpression({latex: 'dotplot(HERE)'});
     calculator.setExpression({latex: 'histogram(A)'});
     
-    elt.style.width = '1200px';
-    elt.style.height = '700px';
-    calculator.resize();
+    elt.style.width = window.innerWidth;
+    elt.style.height = window.innerHeight;
     
     // Testing zone below
     //console.log(typeof sanitized_input);
