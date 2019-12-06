@@ -66,6 +66,7 @@
     var calculator = Desmos.GraphingCalculator(elt);
     calculator.setExpression({type: 'table', id: 'table', columns:[{latex: 'A', values: list_of_outputted_numbers}, {latex: 'y', values: JUST_0}]});
     calculator.setExpression({latex: 'histogram(HERE)'});
+    calculator.setExpression({latex: 'dotplot(HERE)'});
     calculator.setExpression({latex: 'histogram(A)'});
     
     elt.style.width = '960px';
