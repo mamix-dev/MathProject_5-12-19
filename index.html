@@ -56,6 +56,7 @@
         calculator.setExpression({type: 'table', id: 'table', columns:[{latex: 'A', values: list_of_outputted_numbers}, {latex: 'y', values: y_values}]});
         calculator.setExpression({id: 'histo', latex: '\\operatorname{histogram}\\left(A\\right)', color: '#fdde9b'});
         calculator.setExpression({id: 'dotplot', latex: '\\operatorname{dotplot}\\left(A\\right)', color: '#2d862d'});
+        //calculator.setDefaultState(showGrid: [false]);
         console.log(y_values); 
         }
     }
@@ -111,7 +112,9 @@
         
     }
     function ON_PAGE_MATH() {
-        DOING_THE_MATH(2);
+        JUST_0 = [];
+        list_of_outputted_numbers = [];
+        DOING_THE_MATH(69);
     }
 
     
