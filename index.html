@@ -25,7 +25,7 @@
 <script src="https://www.desmos.com/api/v1.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 <div id="calculator"></div>
 <script>
-    alert("Welcome to my graphing calculator for a specific problem.\nThis calculator will do as follows...\n1) Create a list of numbers that are randomly selected from a pre-existing list of numbers.\n\nThe pre-existing lists are:\n[55.5,51,54.5,53.5,51,59.5,54,42,53.5,40]\n[60,64.5,66.5,67,62,55,62.5,64,65,55]\n\n2) Find the average of both of these new lists\n3) Find the difference in the averages.\n\n**Note**\nReplace the 'HERE' in the expressions with the letter 'A'.\n\nFind the repo at:\nhttps://github.com/mamix-dev/MathProject_5-12-19");
+    alert("Welcome to my graphing calculator for a specific problem.\nThis calculator will do as follows...\n1) Create a list of numbers that are randomly selected from a pre-existing list of numbers.\n\nThe pre-existing lists are:\n[55.5,51,54.5,53.5,51,59.5,54,42,53.5,40]\n[60,64.5,66.5,67,62,55,62.5,64,65,55]\n\n2) Find the average of both of these new lists\n3) Find the difference in the averages.\n\nFind the repo at:\nhttps://github.com/mamix-dev/MathProject_5-12-19");
     
     // Below are the lists of the numbers (the original dataset)
     const array_of_nums1 = [55.5,51,54.5,53.5,51,59.5,54,42,53.5,40];
@@ -53,10 +53,9 @@
         // Pass         
         }
     finally  {
-        
         calculator.setExpression({type: 'table', id: 'table', columns:[{latex: 'A', values: list_of_outputted_numbers}, {latex: 'y', values: y_values}]});
-        calculator.setExpression({id: 'histo', latex: 'histogram(HERE)'});
-        calculator.setExpression({id: 'dotplot', latex: 'dotplot(HERE)'});
+        calculator.setExpression({id: 'histo', latex: '\\operatorname{histogram}\\left(A\\right)', color: '#fdde9b'});
+        calculator.setExpression({id: 'dotplot', latex: '\\operatorname{dotplot}\\left(A\\right)', color: '#2d862d'});
         console.log(y_values); 
         }
     }
